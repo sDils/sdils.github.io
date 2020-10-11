@@ -19,8 +19,11 @@
    <body onload="loadDoc()">
       <h2>The XMLHttpRequest Object</h2>
       <!-- <button type="button" onclick="loadDoc()">Request data</button> -->
-      <p id="demo"></p>	  
-      <script>
+      
+	  <!-- <p id="demo"></p>	   -->
+      <pre id="demo"></pre>
+	  
+	  <script>
          function loadDoc() {
            var xhttp = new XMLHttpRequest();
            xhttp.onreadystatechange = function() {
