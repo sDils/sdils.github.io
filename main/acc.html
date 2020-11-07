@@ -9,41 +9,59 @@
    </head>
    <body style="display:block;margin-left:auto;margin-right:auto;width:85%;">
       <div class="Header">
-		<h3>Integation Reconciliation</h3>
+		<h3>My Stocks</h3>
 		<h4>Solution Overview</h4>
 		<br/>
 		<br/>		
 	  </div>
-	  <div class="Notice">
+     
+     <div class="stkQuote">
+      <div class="panel-group">
+         <div class="panel panel-default">
+            <div class="panel-heading" style="background-color:#ccebff;">
+               <h4 class="panel-title">
+               <a data-toggle="collapse" href="#collapsePurpose">Stock Quote</a>
+               </h4>
+            </div>
+            <div id="collapsePurpose" class="panel-collapse in collapse">
+               <div class="panel-body">
+                  <!--Load Stock Quote Input-->
+                  <label for="ticker_qt">Ticker</label>
+                  <input type="text" id="stkQuote_input" name="ticker" value="BNS.TO"><br><br> 
+                  <button id="getTickerQt" type="button" onclick="loadStockQupte()">Get Stock Quote</button>
+
+                  <!--Load Stock Quote Output-->
+                  <pre id="stkquote_output"></pre>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!------------------------------------------------------------------------------------>  
+   <div class="stkHistory">
          <div class="panel-group">
             <div class="panel panel-default">
                <div class="panel-heading" style="background-color:#ccebff;">
                   <h4 class="panel-title">
-                  <a data-toggle="collapse" href="#collapsePurpose">Notice</a>
+                  <a data-toggle="collapse" href="#collapsePurpose">Stock History</a>
                   </h4>
                </div>
                <div id="collapsePurpose" class="panel-collapse in collapse">
 				  <div class="panel-body">
-					<textarea id="w3review" name="w3review" rows="4" cols="50">At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea>
+               
+                  <!--Load Stock Histroy Input-->
+                  <label for="ticker">Ticker</label>
+                  <input type="text" id="ticker_input" name="ticker" value="BNS.TO"><br><br> 
+                  <button id="getTickerHist" type="button" onclick="loadTickerHistory()">Get Ticker History</button>
+                  
+                  <!--Load Stock Histroy Output-->
+                  <pre id="stkHist_output"></pre>
 				  </div>
                </div>
             </div>
          </div>
-      </div>
-	  <div class="Purpose">
-         <div class="panel-group">
-            <div class="panel panel-default">
-               <div class="panel-heading" style="background-color:#ccebff;">
-                  <h4 class="panel-title">
-                  <a data-toggle="collapse" href="#collapsePurpose">Purpose</a>
-                  </h4>
-               </div>
-               <div id="collapsePurpose" class="panel-collapse in collapse">
-                  <div class="panel-body">The purpose of this page...</div>
-               </div>
-            </div>
-         </div>
-      </div>
+      </div>  
+      <!------------------------------------------------------------------------------------>
       <div class="Audience">
          <div class="panel-group">
             <div class="panel panel-default">
@@ -58,6 +76,7 @@
             </div>
          </div>
       </div>
+      <!------------------------------------------------------------------------------------>
       <div class="Overview">
          <div class="panel-group">
             <div class="panel panel-default">
@@ -73,6 +92,7 @@
             </div>
          </div>
       </div>
+      <!------------------------------------------------------------------------------------>
       <div class="Workflow">
       <div class="panel-group">
          <div class="panel panel-default">
@@ -183,6 +203,7 @@
                </div>
             </div>
          </div>
+         <!------------------------------------------------------------------------------------>
          <!--ToDo-->
          <div class="TEMPLATESECTION">
             <div class="panel-group">
@@ -200,5 +221,67 @@
             </div>
          </div>
       </div>
+      <script>
+         function loadTickerHistory() {
+            
+            //https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=ZQQ.TO&outputsize=compact&apikey=NITDY4YEPF7745VF
+            
+            var av_baseURI = "https://www.alphavantage.co/query?";
+            var av_function = "function=TIME_SERIES_DAILY";
+            //var av_symbol = "symbol=CNR.TO";
+            var ticker_value = document.getElementById("ticker_input").value;
+            var av_symbol = "symbol="  
+            av_symbol = av_symbol.concat(ticker_value);
+            
+            var av_outputsize = "outputsize=compact";
+            var av_apikey = "apikey=NITDY4YEPF7745VF";
+
+            
+            
+            var request_url = av_baseURI.concat(av_function,"&",av_symbol,"&",av_outputsize,"&",av_apikey);
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              //document.getElementById("demo").innerHTML = this.responseText;
+              document.getElementById("stkHist_output").textContent = this.responseText;
+              }
+            };
+            xhttp.open("GET",request_url,true);
+            //xhttp.open("GET", "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=CNR.TO&outputsize=compact&apikey=NITDY4YEPF7745VF", true);
+            xhttp.send();
+         }
+         function loadStockQupte() {
+            
+            //https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=ZQQ.TO&outputsize=compact&apikey=NITDY4YEPF7745VF
+            
+            var av_baseURI = "https://www.alphavantage.co/query?";
+            var av_function = "function=GLOBAL_QUOTE";
+            //var av_symbol = "symbol=CNR.TO";
+            var ticker_value = document.getElementById("stkQuote_input").value;
+            var av_symbol = "symbol="  
+            av_symbol = av_symbol.concat(ticker_value);
+         
+            var av_apikey = "apikey=NITDY4YEPF7745VF";
+
+            
+            
+            var request_url = av_baseURI.concat(av_function,"&",av_symbol,"&",av_apikey);
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              //document.getElementById("demo").innerHTML = this.responseText;
+              document.getElementById("stkquote_output").textContent = this.responseText;
+              }
+            };
+            xhttp.open("GET",request_url,true);
+            //xhttp.open("GET", "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=CNR.TO&apikey=NITDY4YEPF7745VF", true);
+            
+            xhttp.send();
+         }
+         
+
+      </script>
    </body>
 </html>

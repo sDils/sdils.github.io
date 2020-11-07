@@ -1,0 +1,22 @@
+###############################
+#Stock History By Day
+###############################
+GET https://www.alphavantage.co/query
+?function=TIME_SERIES_DAILY
+&symbol=ZQQ.TRT
+&outputsize=compact
+&apikey=NITDY4YEPF7745VF
+
+
+###############################
+#Stock Ticker Search Endpoint
+###############################
+GET https://www.alphavantage.co/query
+?function=SYMBOL_SEARCH
+&keywords=CNR.TO
+&apikey=NITDY4YEPF7745VF
+
+###############################
+#Stock Quote Endpoint
+###############################
+https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=BNS.TO&apikey=NITDY4YEPF7745VF
