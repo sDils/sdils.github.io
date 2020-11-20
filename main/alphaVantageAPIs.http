@@ -19,4 +19,7 @@ GET https://www.alphavantage.co/query
 ###############################
 #Stock Quote Endpoint
 ###############################
-https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=BNS.TO&apikey=NITDY4YEPF7745VF
+GET https://www.alphavantage.co/query
+?function=GLOBAL_QUOTE
+&symbol=BNS.TO
+&apikey=NITDY4YEPF7745VF

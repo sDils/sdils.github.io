@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Table Data Addition</title>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+</head>
+
+<body>
+   <div class="container">
+      <table id="avtable" data-height="460">
+         <thead>
+            <tr>
+               <th data-field="1. open">open</th>
+               <th data-field="2. high">high</th>
+               <th data-field="3. low">low</th>
+               <th data-field="4. close">close</th>
+               <th data-field="5. volume">volume Name</th>
+            </tr>
+         </thead>
+      </table>
+   </div>
+   <script>
+
+      var avdata =
+         [
+            {
+               "1. open": "87.3400",
+               "2. high": "87.5000",
+               "3. low": "86.7600",
+               "4. close": "86.7700",
+               "5. volume": "43590"
+            },
+            {
+               "1. open": "86.5700",
+               "2. high": "87.3800",
+               "3. low": "86.3400",
+               "4. close": "87.3500",
+               "5. volume": "60300"
+            },
+            {
+               "1. open": "86.8600",
+               "2. high": "87.6100",
+               "3. low": "86.7000",
+               "4. close": "86.7000",
+               "5. volume": "77400"
+            },
+            {
+               "1. open": "87.6600",
+               "2. high": "87.7500",
+               "3. low": "87.2000",
+               "4. close": "87.2900",
+               "5. volume": "32300"
+            },
+            {
+               "1. open": "86.9000",
+               "2. high": "87.6200",
+               "3. low": "86.7100",
+               "4. close": "87.4300",
+               "5. volume": "58500"
+            },
+            {
+               "1. open": "86.6700",
+               "2. high": "87.1500",
+               "3. low": "86.1900",
+               "4. close": "87.0500",
+               "5. volume": "33300"
+            },
+            {
+               "1. open": "86.9100",
+               "2. high": "87.2000",
+               "3. low": "85.9000",
+               "4. close": "86.2200",
+               "5. volume": "88600"
+            }
+         ]
+
+      $(function () {
+         $('#avtable').bootstrapTable({
+            data: avdata
+         });
+      });
+
+   </script>
+</body>
+
+</html>
