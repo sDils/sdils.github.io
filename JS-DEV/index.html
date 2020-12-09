@@ -25,241 +25,114 @@
    <meta name="msapplication-config" content="img/browserconfig.xml">
    <meta name="theme-color" content="#ffffff">
 
+   <link rel="stylesheet" href="css/master.css">
 
+
+   <title>Market Information at your fingertips | Mercato</title>
 </head>
 
 <body style="display:block;margin-left:auto;margin-right:auto;width:85%;">
-   <div class="Header">
-      <h3>My Stocks</h3>
-      <h4>Solution Overview</h4>
+   <!--<div class="Header">
+      <h3>MERCATO</h3>
       <br />
       <br />
-   </div>
+   </div>-->
+   
+   <!-- <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="#collapse_stkQuote">Quotes</a>
+      <a href="#collapse_stkHistory">Histroy</a>
+      <a href="#avtable">Table</a>
 
-   <div class="stkQuote">
-      <div class="panel-group">
-         <div class="panel panel-default">
-            <div class="panel-heading" style="background-color:#ccebff;">
-               <h4 class="panel-title">
-                  <a data-toggle="collapse" href="#collapse_stkQuote">Stock Quote</a>
-               </h4>
-            </div>
-            <div id="collapse_stkQuote" class="panel-collapse in collapse">
-               <div class="panel-body">
-                  <!--Load Stock Quote Input-->
-                  <label for="ticker_qt">Ticker</label>
-                  <input type="text" id="stkQuote_input" name="ticker" value="BNS.TO"><br><br>
-                  <button id="getTickerQt" type="button" onclick="loadStockQupte()">Get Stock Quote</button>
+   </div>
+   <br /> -->
 
-                  <!--Load Stock Quote Output-->
-                  <pre id="stkquote_output"></pre>
-               </div>
-            </div>
-         </div>
-      </div>
+   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Mercato</span>
+   <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#collapse_stkQuote">Quotes</a>
+      <a href="#collapse_stkHistory">History</a>
+      <a href="#collapseJSONTable">JS Table</a>
+      <!-- <a href="#">Contact</a> -->
    </div>
-   <!------------------------------------------------------------------------------------>
-   <div class="stkHistory">
-      <div class="panel-group">
-         <div class="panel panel-default">
-            <div class="panel-heading" style="background-color:#ccebff;">
-               <h4 class="panel-title">
-                  <a data-toggle="collapse" href="#collapse_stkHistory">Stock History</a>
-               </h4>
-            </div>
-            <div id="collapse_stkHistory" class="panel-collapse in collapse">
-               <div class="panel-body">
-
-                  <!--Load Stock Histroy Input-->
-                  <label for="ticker">Ticker</label>
-                  <input type="text" id="ticker_input" name="ticker" value="BNS.TO"><br><br>
-                  <button id="getTickerHist" type="button" onclick="loadTickerHistory()">Get Ticker History</button>
-
-                  <!--Load Stock Histroy Output-->
-                  <pre id="stkHist_output"></pre>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!------------------------------------------------------------------------------------>
-   <div class="JSONTable">
-      <div class="panel-group">
-         <div class="panel panel-default">
-            <div class="panel-heading" style="background-color:#ccebff;">
-               <h4 class="panel-title">
-                  <a data-toggle="collapse" href="#collapseJSONTable">JSON Table</a>
-               </h4>
-            </div>
-            <div id="collapseJSONTable" class="panel-collapse collapse">
-               <div class="panel-body">
-                  <div class="table-responsive">
-                     <table id="avtable" class="table">
-                        <thead>
-                           <tr>
-                              <th data-field="1. open">open</th>
-                              <th data-field="2. high">high</th>
-                              <th data-field="3. low">low</th>
-                              <th data-field="4. close">close</th>
-                              <th data-field="5. volume">volume Name</th>
-                           </tr>
-                        </thead>
-                     </table>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!------------------------------------------------------------------------------------>
-   <div class="Overview">
-      <div class="panel-group">
-         <div class="panel panel-default">
-            <div class="panel-heading" style="background-color:#ccebff;">
-               <h4 class="panel-title">
-                  <a data-toggle="collapse" href="#collapseOverview">Overview</a>
-               </h4>
-            </div>
-            <div id="collapseOverview" class="panel-collapse in collapse">
-               <div class="panel-body">The ...</div>
-               <div class="panel-footer" style="font-size:9pt;"><strong>note.</strong> For more details, please refer to
-                  the specification available <a href="">here</a></div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!------------------------------------------------------------------------------------>
-   <div class="Workflow">
-      <div class="panel-group">
-         <div class="panel panel-default">
-            <div class="panel-heading" style="background-color:#ccebff;">
-               <h4 class="panel-title">
-                  <a data-toggle="collapse" href="#collapseWorkflow">Workflow</a>
-               </h4>
-            </div>
-            <div id="collapseWorkflow" class="panel-collapse collapse" style="font-size:10pt">
-               <div class="WorkflowSequence">
-                  <p>The following diagram describes the steps executed as part of the workflow: </p>
-                  <img src="SequenceDiagram.png" style="display:block;margin-left:auto;margin-right:auto;" />
-                  <br />
-               </div>
-               <p>The steps are outlined below:</p>
-               <!--Step 1-->
-               <div class="panel-group">
-                  <div class="panel panel-default">
-                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                           <a data-toggle="collapse" href="#collapse1" style="font-size:10pt">1) The system is intiated
-                              by the Job Schedule API.</a>
-                        </h4>
-                     </div>
-                     <div id="collapse1" class="panel-collapse collapse" style="font-size:10pt">
-                        <ul class="list-group">
-                           <li class="list-group-item">
-                              <div class="panel panel-default">
-                                 <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                       <a data-toggle="collapse" href="#collapse1A" style="font-size:10pt">a. The system
-                                          initiates the logging module.</a>
-                                    </h4>
-                                 </div>
-                                 <div id="collapse1A" class="panel-collapse collapse">
-                                    <ul class="list-group">
-                                       <li class="list-group-item" style="font-size:10pt">i) One</li>
-                                       <li class="list-group-item" style="font-size:10pt">ii) Two</li>
-                                       <li class="list-group-item" style="font-size:10pt">iii) Three</li>
-                                    </ul>
-                                    <!--<div class="panel-footer">Footer</div>-->
-                                 </div>
-                              </div>
-                              <!---->
-                           </li>
-                           <li class="list-group-item">
-                              <div class="panel panel-default">
-                                 <div class="panel-heading">
-                                    <h4 class="panel-title" style="font-size:10pt">b. The system logs the trace.</h4>
-                                 </div>
-                           </li>
-                           <li class="list-group-item">
-                              <div class="panel panel-default">
-                                 <div class="panel-heading">
-                                    <h4 class="panel-title" style="font-size:10pt">c. The system updates the job status.
-                                    </h4>
-                                 </div>
-                           </li>
-                        </ul>
-                        <!--<div class="panel-footer">Footer</div>-->
-                     </div>
-                  </div>
-               </div>
-               <!--End Step 1 -->
-               <!--Step 2-->
-               <div class="panel-group">
-                  <div class="panel panel-default">
-                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                           <a data-toggle="collapse" href="#collapse2" style="font-size:10pt">2) The system validates
-                              that a security token is provided.</a>
-                        </h4>
-                     </div>
-                     <div id="collapse2" class="panel-collapse collapse">
-                        <ul class="list-group">
-                           <li class="list-group-item">
-                              <div class="panel panel-default">
-                                 <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                       <a data-toggle="collapse" href="#collapse2A" style="font-size:10pt">a. One</a>
-                                    </h4>
-                                 </div>
-                                 <div id="collapse2A" class="panel-collapse collapse">
-                                    <ul class="list-group">
-                                       <li class="list-group-item" style="font-size:10pt">One</li>
-                                       <li class="list-group-item" style="font-size:10pt">Two</li>
-                                       <li class="list-group-item" style="font-size:10pt">Three</li>
-                                    </ul>
-                                    <!--<div class="panel-footer">Footer</div>-->
-                                 </div>
-                              </div>
-                              <!---->
-                           </li>
-                           <li class="list-group-item">
-                              <div class="panel panel-default">
-                                 <div class="panel-heading">
-                                    <h4 class="panel-title" style="font-size:10pt">b. Two</h4>
-                                 </div>
-                           </li>
-                           <li class="list-group-item">
-                              <div class="panel panel-default">
-                                 <div class="panel-heading">
-                                    <h4 class="panel-title" style="font-size:10pt">c. Three</h4>
-                                 </div>
-                           </li>
-                        </ul>
-                        <!--<div class="panel-footer">Footer</div>-->
-                     </div>
-                  </div>
-               </div>
-               <!--End Step 2-->
-            </div>
-         </div>
-      </div>
-      <!------------------------------------------------------------------------------------>
-      <!--ToDo-->
-      <div class="TEMPLATESECTION">
+   
+   <div id="main">
+      <div class="stkQuote">
          <div class="panel-group">
             <div class="panel panel-default">
                <div class="panel-heading" style="background-color:#ccebff;">
                   <h4 class="panel-title">
-                     <a data-toggle="collapse" href="#collapseOverview">INSERT TEXT - SECTION HEADER</a>
+                     <a id="stkQuotes" data-toggle="collapse" href="#collapse_stkQuote">Stock Quote</a>
                   </h4>
                </div>
-               <div id="collapseOverview" class="panel-collapse collapse">
-                  <div class="panel-body">INSERT TEXT - SECTION BODY</div>
-                  <div class="panel-footer" style="font-size:9pt;">INSERT TEXT - SECTION Footer</div>
+               <div id="collapse_stkQuote" class="panel-collapse collapse">
+                  <div class="panel-body">
+                     <!--Load Stock Quote Input-->
+                     <label for="ticker_qt">Ticker</label>
+                     <input type="text" id="stkQuote_input" name="ticker" value="BNS.TO"><br><br>
+                     <button id="getTickerQt" type="button" onclick="loadStockQupte()">Get Stock Quote</button>
+
+                     <!--Load Stock Quote Output-->
+                     <pre id="stkquote_output"></pre>
+                  </div>
                </div>
             </div>
          </div>
       </div>
+      <!------------------------------------------------------------------------------------>
+      <div id="stkHistory" class="stkHistory">
+         <div class="panel-group">
+            <div class="panel panel-default">
+               <div class="panel-heading" style="background-color:#ccebff;">
+                  <h4 class="panel-title">
+                     <a data-toggle="collapse" href="#collapse_stkHistory">Stock History</a>
+                  </h4>
+               </div>
+               <div id="collapse_stkHistory" class="panel-collapse collapse">
+                  <div class="panel-body">
+
+                     <!--Load Stock Histroy Input-->
+                     <label for="ticker">Ticker</label>
+                     <input type="text" id="ticker_input" name="ticker" value="BNS.TO"><br><br>
+                     <button id="getTickerHist" type="button" onclick="loadTickerHistory()">Get Ticker History</button>
+
+                     <!--Load Stock Histroy Output-->
+                     <pre id="stkHist_output"></pre>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!------------------------------------------------------------------------------------>
+      <div id="JSONTable" class="JSONTable">
+         <div class="panel-group">
+            <div class="panel panel-default">
+               <div class="panel-heading" style="background-color:#ccebff;">
+                  <h4 class="panel-title">
+                     <a data-toggle="collapse" href="#collapseJSONTable">JSON Table</a>
+                  </h4>
+               </div>
+               <div id="collapseJSONTable" class="panel-collapse collapse">
+                  <div class="panel-body">
+                     <div class="table-responsive">
+                        <table id="avtable" class="table">
+                           <thead>
+                              <tr>
+                                 <th data-field="1. open">open</th>
+                                 <th data-field="2. high">high</th>
+                                 <th data-field="3. low">low</th>
+                                 <th data-field="4. close">close</th>
+                                 <th data-field="5. volume">volume Name</th>
+                              </tr>
+                           </thead>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
    </div>
    <script>
       var avdata =
@@ -378,6 +251,20 @@
          //xhttp.open("GET", "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=CNR.TO&apikey=NITDY4YEPF7745VF", true);
 
          xhttp.send();
+      }
+
+      /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+      function openNav() {
+         document.getElementById("mySidenav").style.width = "250px";
+         document.getElementById("main").style.marginLeft = "250px";
+         document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+      }
+
+      /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+      function closeNav() {
+         document.getElementById("mySidenav").style.width = "0";
+         document.getElementById("main").style.marginLeft = "0";
+         document.body.style.backgroundColor = "white";
       }
 
 
