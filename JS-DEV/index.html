@@ -7,12 +7,19 @@
    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
    <!--Bootstrap -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script> -->
+
+   <!-- Bootstrap CSS CDN -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+   <!-- Font Awesome JS -->
+   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
 
    <!-- Favicon Generated from https://realfavicongenerator.net/ -->
    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
@@ -26,106 +33,181 @@
    <meta name="theme-color" content="#ffffff">
 
    <link rel="stylesheet" href="css/master.css">
+   <link rel="stylesheet" href="css/bs-sidenav.css">
+   <script src="script/AlphaVantage.js"></script>
+   <script src="script/sidebar.js"></script>
 
 
    <title>Market Information at your fingertips | Mercato</title>
 </head>
 
 <body style="display:block;margin-left:auto;margin-right:auto;width:85%;">
-   <!--<div class="Header">
-      <h3>MERCATO</h3>
-      <br />
-      <br />
-   </div>-->
    
-   <!-- <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#collapse_stkQuote">Quotes</a>
-      <a href="#collapse_stkHistory">Histroy</a>
-      <a href="#avtable">Table</a>
-
-   </div>
-   <br /> -->
-
-   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Mercato</span>
+   
+   <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Mercato</span>
    <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="#collapse_stkQuote">Quotes</a>
       <a href="#collapse_stkHistory">History</a>
       <a href="#collapseJSONTable">JS Table</a>
-      <!-- <a href="#">Contact</a> -->
-   </div>
-   
-   <div id="main">
-      <div class="stkQuote">
-         <div class="panel-group">
-            <div class="panel panel-default">
-               <div class="panel-heading" style="background-color:#ccebff;">
-                  <h4 class="panel-title">
-                     <a id="stkQuotes" data-toggle="collapse" href="#collapse_stkQuote">Stock Quote</a>
-                  </h4>
-               </div>
-               <div id="collapse_stkQuote" class="panel-collapse collapse">
-                  <div class="panel-body">
-                     <!--Load Stock Quote Input-->
-                     <label for="ticker_qt">Ticker</label>
-                     <input type="text" id="stkQuote_input" name="ticker" value="BNS.TO"><br><br>
-                     <button id="getTickerQt" type="button" onclick="loadStockQupte()">Get Stock Quote</button>
+      <a href="#">Contact</a>
+   </div> -->
+   <div class="wrapper">
+      <nav id="sidebar">
+         <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+         </div>
 
-                     <!--Load Stock Quote Output-->
-                     <pre id="stkquote_output"></pre>
+         <div class="sidebar-header">
+            <img src="img/logo.svg" style="width: 30px; height: 30px; float: left; margin-right: 10px;">
+            <h3>Mercato</h3>
+         </div>
+
+         <ul class="list-unstyled components">
+            <p>Dummy Heading</p>
+            <li class="active">
+               <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+               <ul class="collapse list-unstyled" id="homeSubmenu">
+                  <li>
+                     <a href="#">Home 1</a>
+                  </li>
+                  <li>
+                     <a href="#">Home 2</a>
+                  </li>
+                  <li>
+                     <a href="#">Home 3</a>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <a href="#">About</a>
+               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+               <ul class="collapse list-unstyled" id="pageSubmenu">
+                  <li>
+                     <a href="#">Page 1</a>
+                  </li>
+                  <li>
+                     <a href="#">Page 2</a>
+                  </li>
+                  <li>
+                     <a href="#">Page 3</a>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <a href="#">Portfolio</a>
+            </li>
+            <li>
+               <a href="#">Contact</a>
+            </li>
+         </ul>
+
+         <ul class="list-unstyled CTAs">
+            <li>
+               <a href="#" class="download">Download source</a>
+            </li>
+            <li>
+               <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+            </li>
+         </ul>
+      </nav>
+
+      <div id="content">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+               <button type="button" id="sidebarCollapse" class="btn btn-info">
+                  <i class="fas fa-align-left"></i>
+               </button>
+               <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <i class="fas fa-align-justify"></i>
+               </button>
+
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="nav navbar-nav ml-auto">
+                     <li class="nav-item">
+                        <img src="img/logo.svg" style="width: 30px; height: 30px; float: left; margin-top: 10px;">
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://sdils.github.io/main/acc.html" style="font-size: 18pt;">Mercato</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+         <div class="stkQuote">
+            <div class="panel-group">
+               <div class="panel panel-default">
+                  <div class="panel-heading" style="background-color:#ccebff;">
+                     <h4 class="panel-title">
+                        <a id="stkQuotes" data-toggle="collapse" href="#collapse_stkQuote">Stock Quote</a>
+                     </h4>
+                  </div>
+                  <div id="collapse_stkQuote" class="panel-collapse collapse">
+                     <div class="panel-body">
+                        <!--Load Stock Quote Input-->
+                        <label for="ticker_qt">Ticker</label>
+                        <input type="text" id="stkQuote_input" name="ticker" value="BNS.TO"><br><br>
+                        <button id="getTickerQt" type="button" onclick="loadStockQupte()">Get Stock Quote</button>
+
+                        <!--Load Stock Quote Output-->
+                        <pre id="stkquote_output"></pre>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
-      </div>
-      <!------------------------------------------------------------------------------------>
-      <div id="stkHistory" class="stkHistory">
-         <div class="panel-group">
-            <div class="panel panel-default">
-               <div class="panel-heading" style="background-color:#ccebff;">
-                  <h4 class="panel-title">
-                     <a data-toggle="collapse" href="#collapse_stkHistory">Stock History</a>
-                  </h4>
-               </div>
-               <div id="collapse_stkHistory" class="panel-collapse collapse">
-                  <div class="panel-body">
+         <!------------------------------------------------------------------------------------>
+         <div id="stkHistory" class="stkHistory">
+            <div class="panel-group">
+               <div class="panel panel-default">
+                  <div class="panel-heading" style="background-color:#ccebff;">
+                     <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse_stkHistory">Stock History</a>
+                     </h4>
+                  </div>
+                  <div id="collapse_stkHistory" class="panel-collapse collapse">
+                     <div class="panel-body">
 
-                     <!--Load Stock Histroy Input-->
-                     <label for="ticker">Ticker</label>
-                     <input type="text" id="ticker_input" name="ticker" value="BNS.TO"><br><br>
-                     <button id="getTickerHist" type="button" onclick="loadTickerHistory()">Get Ticker History</button>
+                        <!--Load Stock Histroy Input-->
+                        <label for="ticker">Ticker</label>
+                        <input type="text" id="ticker_input" name="ticker" value="BNS.TO"><br><br>
+                        <button id="getTickerHist" type="button" onclick="loadTickerHistory()">Get Ticker
+                           History</button>
 
-                     <!--Load Stock Histroy Output-->
-                     <pre id="stkHist_output"></pre>
+                        <!--Load Stock Histroy Output-->
+                        <pre id="stkHist_output"></pre>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
-      </div>
-      <!------------------------------------------------------------------------------------>
-      <div id="JSONTable" class="JSONTable">
-         <div class="panel-group">
-            <div class="panel panel-default">
-               <div class="panel-heading" style="background-color:#ccebff;">
-                  <h4 class="panel-title">
-                     <a data-toggle="collapse" href="#collapseJSONTable">JSON Table</a>
-                  </h4>
-               </div>
-               <div id="collapseJSONTable" class="panel-collapse collapse">
-                  <div class="panel-body">
-                     <div class="table-responsive">
-                        <table id="avtable" class="table">
-                           <thead>
-                              <tr>
-                                 <th data-field="1. open">open</th>
-                                 <th data-field="2. high">high</th>
-                                 <th data-field="3. low">low</th>
-                                 <th data-field="4. close">close</th>
-                                 <th data-field="5. volume">volume Name</th>
-                              </tr>
-                           </thead>
-                        </table>
+         <!------------------------------------------------------------------------------------>
+         <div id="JSONTable" class="JSONTable">
+            <div class="panel-group">
+               <div class="panel panel-default">
+                  <div class="panel-heading" style="background-color:#ccebff;">
+                     <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapseJSONTable">JSON Table</a>
+                     </h4>
+                  </div>
+                  <div id="collapseJSONTable" class="panel-collapse collapse">
+                     <div class="panel-body">
+                        <div class="table-responsive">
+                           <table id="avtable" class="table">
+                              <thead>
+                                 <tr>
+                                    <th data-field="1. open">open</th>
+                                    <th data-field="2. high">high</th>
+                                    <th data-field="3. low">low</th>
+                                    <th data-field="4. close">close</th>
+                                    <th data-field="5. volume">volume Name</th>
+                                 </tr>
+                              </thead>
+                           </table>
+                        </div>
                      </div>
                   </div>
                </div>
@@ -133,141 +215,36 @@
          </div>
       </div>
    </div>
-   </div>
-   <script>
-      var avdata =
-         [
-            {
-               "1. open": "87.3400",
-               "2. high": "87.5000",
-               "3. low": "86.7600",
-               "4. close": "86.7700",
-               "5. volume": "43590"
-            },
-            {
-               "1. open": "86.5700",
-               "2. high": "87.3800",
-               "3. low": "86.3400",
-               "4. close": "87.3500",
-               "5. volume": "60300"
-            },
-            {
-               "1. open": "86.8600",
-               "2. high": "87.6100",
-               "3. low": "86.7000",
-               "4. close": "86.7000",
-               "5. volume": "77400"
-            },
-            {
-               "1. open": "87.6600",
-               "2. high": "87.7500",
-               "3. low": "87.2000",
-               "4. close": "87.2900",
-               "5. volume": "32300"
-            },
-            {
-               "1. open": "86.9000",
-               "2. high": "87.6200",
-               "3. low": "86.7100",
-               "4. close": "87.4300",
-               "5. volume": "58500"
-            },
-            {
-               "1. open": "86.6700",
-               "2. high": "87.1500",
-               "3. low": "86.1900",
-               "4. close": "87.0500",
-               "5. volume": "33300"
-            },
-            {
-               "1. open": "86.9100",
-               "2. high": "87.2000",
-               "3. low": "85.9000",
-               "4. close": "86.2200",
-               "5. volume": "88600"
-            }
-         ]
+   
+   <div class="overlay"></div>
+   
+   <!-- jQuery CDN - Slim version (=without AJAX) -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <!-- Popper.JS -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+   <!-- Bootstrap JS -->
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+   <!-- jQuery Custom Scroller CDN -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-      $(function () {
-         $('#avtable').bootstrapTable({
-            data: avdata
+   <script type="text/javascript">
+      $(document).ready(function () {
+         $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+         });
+
+         $('#dismiss, .overlay').on('click', function () {
+            $('#sidebar').removeClass('active');
+            $('.overlay').removeClass('active');
+         });
+
+         $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').addClass('active');
+            $('.overlay').addClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
          });
       });
-
-      function loadTickerHistory() {
-
-         //https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=ZQQ.TO&outputsize=compact&apikey=NITDY4YEPF7745VF
-
-         var av_baseURI = "https://www.alphavantage.co/query?";
-         var av_function = "function=TIME_SERIES_DAILY";
-         //var av_symbol = "symbol=CNR.TO";
-         var ticker_value = document.getElementById("ticker_input").value;
-         var av_symbol = "symbol="
-         av_symbol = av_symbol.concat(ticker_value);
-
-         var av_outputsize = "outputsize=compact";
-         var av_apikey = "apikey=NITDY4YEPF7745VF";
-
-
-
-         var request_url = av_baseURI.concat(av_function, "&", av_symbol, "&", av_outputsize, "&", av_apikey);
-
-         var xhttp = new XMLHttpRequest();
-         xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-               //document.getElementById("demo").innerHTML = this.responseText;
-               document.getElementById("stkHist_output").textContent = this.responseText;
-            }
-         };
-         xhttp.open("GET", request_url, true);
-         //xhttp.open("GET", "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=CNR.TO&outputsize=compact&apikey=NITDY4YEPF7745VF", true);
-         xhttp.send();
-      }
-      function loadStockQupte() {
-
-         //https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=ZQQ.TO&outputsize=compact&apikey=NITDY4YEPF7745VF
-
-         var av_baseURI = "https://www.alphavantage.co/query?";
-         var av_function = "function=GLOBAL_QUOTE";
-         //var av_symbol = "symbol=CNR.TO";
-         var ticker_value = document.getElementById("stkQuote_input").value;
-         var av_symbol = "symbol="
-         av_symbol = av_symbol.concat(ticker_value);
-
-         var av_apikey = "apikey=NITDY4YEPF7745VF";
-
-
-
-         var request_url = av_baseURI.concat(av_function, "&", av_symbol, "&", av_apikey);
-
-         var xhttp = new XMLHttpRequest();
-         xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-               //document.getElementById("demo").innerHTML = this.responseText;
-               document.getElementById("stkquote_output").textContent = this.responseText;
-            }
-         };
-         xhttp.open("GET", request_url, true);
-         //xhttp.open("GET", "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=CNR.TO&apikey=NITDY4YEPF7745VF", true);
-
-         xhttp.send();
-      }
-
-      /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-      function openNav() {
-         document.getElementById("mySidenav").style.width = "250px";
-         document.getElementById("main").style.marginLeft = "250px";
-         document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-      }
-
-      /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
-      function closeNav() {
-         document.getElementById("mySidenav").style.width = "0";
-         document.getElementById("main").style.marginLeft = "0";
-         document.body.style.backgroundColor = "white";
-      }
-
-
    </script>
 </body>
 
